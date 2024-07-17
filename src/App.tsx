@@ -19,10 +19,9 @@ function App() {
     };
   }, [isRunning]);
 
-  const handleStart = () => {
-    setIsRunning(true);
+  const toggleCounter = () => {
+    setIsRunning(!isRunning);
   };
-
   const handleReset = () => {
     setIsRunning(false);
     setCount(0);
@@ -31,9 +30,9 @@ function App() {
   return (
     <>
       <div className="card">
-        <button onClick={() => handleStart()}>Start</button>
+        <p>Count: {count}</p>
+        <button onClick={toggleCounter}>{isRunning ? "Pause" : "Start"}</button>
         <button onClick={() => handleReset()}>Reset</button>
-        <div>{count}</div>
       </div>
     </>
   );
